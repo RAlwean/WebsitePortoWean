@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum - Instalasi Laravel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-color: #0c3463;
+            --secondary-color: #1a508b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Container Utama */
+        .report-container {
+            max-width: 900px;
+            margin: 100px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Navigasi Back */
+        .back-nav {
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-link i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Header Laporan */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge-dept {
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        /* Content Styling */
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Image Display */
+        .img-box {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.01);
+        }
+
+        .caption {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Code Block */
+        .code-snippet {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #3e4451;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            border-radius: 0 8px 0 8px;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animation class */
+        [data-aos] {
+            pointer-events: none;
+        }
+        .aos-animate {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 20px;
+                padding: 25px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container" data-aos="fade-up">
+        <div class="back-nav">
+            <a href="work.html" class="back-link">
+                <i class='bx bx-chevron-left'></i> Kembali ke Galeri Work
+            </a>
+        </div>
+
+        <header>
+            <span class="badge-dept">Informatika UNAND - Pemrograman Web</span>
+            <h1>Laporan Praktikum: Instalasi & Pengenalan Framework Laravel 12</h1>
+            <div class="meta-info">
+                <p>Oleh: <strong>Renaldi Alwean Saputra</strong> | NIM: 2411532003</p>
+                <p><i class='bx bx-calendar'></i> Mei 2026</p>
+            </div>
+        </header>
+
+        <section id="pendahuluan">
+            <h2>A. PENDAHULUAN</h2>
+            <p>Perkembangan teknologi web saat ini menuntut pengembang aplikasi untuk bekerja secara lebih efisien, terstruktur, dan aman. Dalam ekosistem PHP, Laravel telah menjadi salah satu framework yang paling populer karena menyediakan berbagai fitur modern yang mempermudah proses pengembangan, seperti Eloquent ORM, Blade Templating Engine, dan sistem antrean (Queues). Laravel mengadopsi arsitektur Model-View-Controller (MVC) yang memungkinkan pemisahan yang jelas antara logika bisnis, pengelolaan data, dan tampilan antarmuka aplikasi.</p>
+        </section>
+
+        <section id="rumusan-masalah">
+            <h2>B. RUMUSAN MASALAH</h2>
+            <ul>
+                <li>Bagaimana cara menyiapkan lingkungan pengembangan dan memenuhi persyaratan sistem yang dibutuhkan oleh Laravel versi 12?</li>
+                <li>Bagaimana langkah-langkah instalasi dan pembuatan proyek baru menggunakan Composer atau Laravel Installer?</li>
+                <li>Bagaimana implementasi konsep arsitektur MVC (Model, View, Controller) bekerja di dalam struktur direktori Laravel?</li>
+            </ul>
+        </section>
+
+        <section id="tujuan">
+            <h2>C. TUJUAN PRAKTIKUM</h2>
+            <ol>
+                <li>Mahasiswa mampu melakukan instalasi dan konfigurasi perangkat pendukung seperti XAMPP, Composer, Git, dan Node.js.</li>
+                <li>Mahasiswa memahami persyaratan sistem minimal agar framework Laravel dapat berjalan dengan optimal.</li>
+            <li>Mahasiswa mampu membuat proyek Laravel baru serta memahami fungsi dari setiap struktur folder utama.</li>
+            <li>Mahasiswa dapat mengimplementasikan rute sederhana (routing) dan memahami peran MVC dalam menangani request.</li>
+            </ol>
+        </section>
+
+        <section id="langkah-kerja">
+            <h2>D. LANGKAH KERJA & INSTALASI</h2>
+            
+            <h3>1. Persiapan Environment</h3>
+            <p>Tahap pertama adalah memastikan semua software pendukung terpasang. XAMPP digunakan untuk server lokal, Composer untuk manajemen library PHP, Git untuk version control, dan Node.js untuk asset bundling.</p>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 183703.png" alt="Instalasi XAMPP">
+                <span class="caption">Gambar 1: Status instalasi XAMPP Control Panel.</span>
+            </div>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 183937.png" alt="Download Composer">
+                <span class="caption">Gambar 2: Proses pengunduhan Composer melalui situs resmi.</span>
+            </div>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 184036.png" alt="Instalasi Git">
+                <span class="caption">Gambar 3: Tahap instalasi Git SCM.</span>
+            </div>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 184057.png" alt="Instalasi Node JS">
+                <span class="caption">Gambar 4: Website resmi Node.js untuk runtime JavaScript.</span>
+            </div>
+
+            <h3>2. Integrasi & Verifikasi</h3>
+            <p>Setelah instalasi selesai, dilakukan verifikasi melalui terminal di Visual Studio Code untuk memastikan semua tool sudah terintegrasi dengan sistem.</p>
+            
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 184723.png" alt="Verifikasi Terminal">
+                <span class="caption">Gambar 5: Pengecekan versi tools melalui terminal terintegrasi VS Code.</span>
+            </div>
+
+            <h3>3. Pembuatan Project & Struktur MVC</h3>
+            <p>Langkah selanjutnya adalah membuat proyek Laravel baru. Pada praktikum ini, kita mengeksplorasi pembuatan Controller dan View sebagai bagian dari konsep MVC.</p>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 185801.png" alt="Student Controller">
+                <span class="caption">Gambar 6: Source code StudentController.php untuk pengolahan logika.</span>
+            </div>
+
+            <div class="code-snippet">
+                <div class="code-header">PHP</div>
+                <code>
+                    // app/Http/Controllers/StudentController.php <br>
+                    public function index() { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return view('student.index'); <br>
+                    }
+                </code>
+            </div>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 190036.png" alt="Web Routing">
+                <span class="caption">Gambar 7: Konfigurasi rute pada routes/web.php.</span>
+            </div>
+
+            <div class="img-box">
+                <img src="image/Screenshot 2026-05-13 190234.png" alt="Blade View">
+                <span class="caption">Gambar 8: Struktur tampilan (View) menggunakan Blade Engine.</span>
+            </div>
+        </section>
+
+        <section id="kesimpulan">
+            <h2>E. KESIMPULAN</h2>
+            <p>Berdasarkan hasil praktikum yang telah dilaksanakan, dapat disimpulkan bahwa proses instalasi dan konfigurasi awal framework Laravel memerlukan kesiapan lingkungan pengembangan yang mumpuni, mulai dari web server lokal hingga manajemen paket. Penggunaan tools seperti Composer sangat krusial dalam menjaga keteraturan library PHP, sementara Node.js memastikan aset frontend dapat terkelola dengan baik.</p>
+            <p>Pemahaman mengenai arsitektur Model-View-Controller (MVC) menjadi fondasi utama. Dengan memisahkan logika data, tampilan, dan pemrosesan request, pengembangan aplikasi web menjadi lebih terorganisir, skalabel, dan mudah untuk dikembangkan lebih lanjut.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Renaldi Alwean Saputra. Built for Portfolio.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 150,
+            once: true
+        });
+    </script>
+</body>
+</html>

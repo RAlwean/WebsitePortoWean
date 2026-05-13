@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Laporan Praktikum</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <script src="script.js" defer></script>
+
+    <nav>
+        <div class="logo">
+            <h2 data-aos="zoom-in">Renaldi <span>Alwean</span></h2>
+        </div>
+        <div class="link">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="work.html" style="color: rgb(12, 52, 99); font-weight: bold;">Work</a></li>
+                <li><a href="portofolio.html">Portofolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="portfolio-section">
+
+        <div class="portfolio-header" data-aos="fade-down">
+            <h1>Laporan Praktikum & Tugas</h1>
+            <p>Dokumentasi hasil praktikum selama menempuh pendidikan di Informatika UNAND.</p>
+
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="ai">Coming soon</button>
+                <button class="filter-btn" data-filter="network">Coming soon</button>
+            </div>
+        </div>
+
+        <div class="portfolio-container">
+
+            <div class="portfolio-card" data-item="web" data-aos="fade-up">
+                <div class="card-img">
+                    <img src="C:\Users\USER\Downloads\Web Portofolio Wean\UAS Desain Web\Image\laravel.png" alt="Laporan Laravel">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Pemrograman Web</span>
+                    <h3>Instalasi Framework Laravel</h3>
+                    <p>Konfigurasi awal environment Laravel 12 dan pengenalan konsep arsitektur MVC.</p>
+                    
+                    <a href="detail-laravel.html" class="read-more-btn">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="ai" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img">
+                    <img src="C:\Users\USER\Downloads\Web Portofolio Wean\UAS Desain Web\Image\coming.jpg" alt="Coming soon">
+                </div>
+                <div class="card-body">
+                    <span class="badge"></span>
+                    <h3></h3>
+                    <p>.</p>
+                    
+                    <a href="detail.html" class="read-more-btn">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="network" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="C:\Users\USER\Downloads\Web Portofolio Wean\UAS Desain Web\Image\coming.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <span class="badge"></span>
+                    <h3></h3>
+                    <p>.</p>
+                    
+                    <a href="detail.html" class="read-more-btn">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ offset: 50 });</script>
+    
+    <footer>
+        <p>Copyright &copy; 2026 <strong>Renaldi Alwean</strong>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.portfolio-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-item') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
