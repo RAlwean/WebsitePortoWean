@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Renaldi Alwean</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <script src="script.js" defer></script>
+
+    <nav>
+        <div class="logo">
+            <h2 data-aos="zoom-in">Renaldi <span>Alwean</span></h2>
+        </div>
+        <div class="link">
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="200"><a href="index.html">Home</a></li>
+                <li data-aos="fade-up" data-aos-delay="400"><a href="about.html">About</a></li>
+                <li data-aos="fade-up" data-aos-delay="600"><a href="#">Work</a></li>
+                <li data-aos="fade-up" data-aos-delay="800"><a href="portofolio.html"
+                        style="color: rgb(12, 52, 99); font-weight: bold;">Portofolio</a></li>
+                <li data-aos="fade-up" data-aos-delay="1000"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="portfolio-section">
+
+        <div class="portfolio-header" data-aos="fade-down">
+            <h1>Berbagai Aktifitas Saya</h1>
+            <p>Berikut adalah beberapa proyek atau Aktifitas yang telah saya kerjakan.</p>
+
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="coding">Pemograman</button>
+                <button class="filter-btn" data-filter="Data">Kelola Data</button>
+                <button class="filter-btn" data-filter="Work">Pekerjaan</button>
+            </div>
+        </div>
+
+        <div class="portfolio-container">
+
+            <div class="portfolio-card" data-item="coding" data-aos="fade-up">
+                <div class="card-img">
+                    <img src="fotopraktikum.png" alt="Project 1">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Project Codingan saya</span>
+                    <h3>Praktikum dan Codingan</h3>
+                    <p>Berbagai Aktifitas dan Rutinitas saya sebagai Mahasiswa Informatika.</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Praktikum dan Codingan', 'fotopraktikum.png', 'Berbagai bentuk project seperti Java Eclipse, Virtual Studio Code dan MySQL yang saya jalani saat ini di semester 3 mahasiswa informatika.', 'Coding')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="Data" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img">
+                    <img src="basisdata.png" alt="Project 2">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Database</span>
+                    <h3>Basis Data</h3>
+                    <p>Pengelolaan Data dalam pemograman</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Pengelolaan Data', 'basisdata.png', 'Melakukan pengelolaan data adalah hal yang penting juga disaat menjadi mahasiswa Informatika.', 'Kelola Data')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="coding" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="desainweb.png" alt="Project 3">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Desain Web</span>
+                    <h3>Pembuatan Web Desain Modern</h3>
+                    <p>Web Profile dan Semacamnya sebagai suatu bentuk rutinitas mahasiswa informatika.</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Website', 'webwean.png', 'Menggunakan Virtual Studio Code dan aplikasian Bootstrap.', 'Web Desain')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="Work" data-aos="fade-up">
+                <div class="card-img">
+                    <img src="gameunity.jpeg" alt="Project 4">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Game with Unity</span>
+                    <h3>Pembuatan Game</h3>
+                    <p>Sebagai Hobi membuat game juga merupakan suatu keahlian saya dalam pemograman.</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Proses Game', 'mapgame.png', 'Menggunakan Unity sebagai dasar dalam menggerakkan object dan membuat codingan ,menggunakan referensi dari sebuah game ROBLOX yang membebaskan pengguna untuk meluangkan ide', 'Game')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="Work" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img">
+                    <img src="Linux.jpeg" alt="Project 5">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Linux</span>
+                    <h3>Pemograman Linux</h3>
+                    <p>Menggunakan sistem operasi lain selain Windows seperti linux untuk meningkatkan pengalaman.</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Linux', 'linuxdalam.png', 'Mengoperasikan linux sebagai sistem operasi selain windows untuk meningkatkan skil dan pengalaman', 'Linux')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-item="Work" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="motor.jpg" alt="Project 6">
+                </div>
+                <div class="card-body">
+                    <span class="badge">Motorcycle</span>
+                    <h3>Engineering?</h3>
+                    <p>Sebagai Hobi dalam waktu luang dan efisiensi .</p>
+                    <button class="read-more-btn"
+                        onclick="openModal('Mekanikal?', 'motor.jpg', 'Selain sebagai mahasiswa yang notabene nya didepan komputer, memperbaiki berbagai barang sendiri juga menjadi hobi saya apalagi dalam membongkar dan memperbaiki motor.', 'Engine')">
+                        View Detail <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Detail Project">
+            <div class="modal-text">
+                <span id="modalBadge" class="badge">Category</span>
+                <h2 id="modalTitle">Project Title</h2>
+                <p id="modalDesc">Project Description goes here...</p>
+                <div class="modal-links">
+                    <a href="#" class="btn-modal primary">Live Demo <i class='bx bx-link-external'></i></a>
+                    <a href="#" class="btn-modal secondary">Github <i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ offset: 50 });</script>
+    <footer>
+        <p>Copyright &copy; <span id="year"></span> <strong>Renaldi Alwean</strong>. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
