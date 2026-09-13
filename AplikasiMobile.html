@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Mobile - Input Widgets and Basic Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-color: #0c3463;
+            --secondary-color: #1a508b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Container Utama */
+        .report-container {
+            max-width: 900px;
+            margin: 100px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .back-nav {
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-link i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge-dept {
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+        .img-box {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.01);
+        }
+
+        .caption {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Code Block */
+        .code-snippet {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #3e4451;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            border-radius: 0 8px 0 8px;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animation class */
+        [data-aos] {
+            pointer-events: none;
+        }
+        .aos-animate {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 20px;
+                padding: 25px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container" data-aos="fade-up">
+        <div class="back-nav">
+            <a href="work.html" class="back-link">
+                <i class='bx bx-chevron-left'></i> Kembali ke Galeri Work
+            </a>
+        </div>
+
+        <header>
+            <span class="badge-dept">Informatika UNAND - Aplikasi Mobile</span>
+            <h1>Laporan Praktikum: Aplikasi Mobile Input Widgets And Form</h1>
+            <div class="meta-info">
+                <p>Oleh: <strong>Renaldi Alwean Saputra</strong> | NIM: 2411532003</p>
+                <p><i class='bx bx-calendar'></i> September 2026</p>
+            </div>
+        </header>
+
+        <section id="pendahuluan">
+            <h2>A. PENDAHULUAN</h2>
+            <p>Pengumpulan dan validasi data merupakan komponen kritikal dalam interaksi pengguna pada aplikasi mobile. Dokumentasi ini menguraikan implementasi sistem formulir pendaftaran (User Registration Form) yang interaktif menggunakan framework Flutter.
+
+Pengembangan sistem ini berfokus pada manajemen state dinamis memanfaatkan StatefulWidget dan GlobalKey<FormState>. Implementasi teknis mencakup penerapan client-side validation secara real-time pada TextFormField termasuk verifikasi otentikasi format email dan komparasi password serta pendekatan pemisahan struktur direktori (modular code) guna memastikan skalabilitas dan efisiensi pemeliharaan kode sumber.</p>
+        </section>
+
+        <section id="langkah-kerja">
+            <h2>B. LANGKAH KERJA & INSTALASI</h2>
+            
+            <h3>1. Inisialisasi Proyek</h3>
+            <p>Membangun kerangka dasar proyek Flutter menggunakan perintah flutter create melalui Terminal atau menggunakan Command Palette pada IDE.</p>
+
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 202952.png" alt="Instalasi flutter project">
+                <img src="Screenshot 2026-09-13 203000.png" alt="Instalasi flutter project">
+                <span class="caption">Pembuatan Project Flutter.</span>
+            </div>
+
+            <h3>2. Implementasi Standard Form </h3>
+            <p>Mengintegrasikan StatefulWidget untuk mengelola perubahan status antarmuka secara dinamis selama siklus hidup komponen</p>
+            
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205150.png" alt="">
+            <p>Memanfaatkan instansiasi TextEditingController guna menangkap nilai masukan teks, yang dikombinasikan dengan pemantauan kejadian (event listener onChanged) untuk melacak aktivitas penomoran atau pengetikan data secara real-time.</p>
+            
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205209.png" alt="">
+                <p>Menerapkan mekanisme umpan balik visual (feedback) instan melalui komponen SnackBar yang dikendalikan oleh ScaffoldMessenger saat tombol aksi dieksekusi.</p>
+            
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205315.png" alt="">
+            </div>
+
+            <h3>3. Implementasi Form Advance</h3>
+            <p>Membungkus elemen masukan ke dalam widget Form yang diregistrasikan menggunakan pengendali status global berbasis GlobalKey</p>
+
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205450.png" alt="">
+            <p>Menyematkan logika pemeriksaan integritas data otomatis melalui properti validator pada masing-masing kolom input, meliputi verifikasi keberadaan nilai data (not null/empty) serta validasi spesifik format karakter (seperti penerapan aturan wajib karakter '@' pada kolom surel).</p>
+                <img src="Screenshot 2026-09-13 205529.png" alt="">
+                <p>Mengonstruksi prosedur eksekusi terpadu (_submitForm) yang memvalidasi keabsahan seluruh parameter formulir secara simultan sebelum merender status keberhasilan pemrosesan data kepada pengguna</p>
+
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205553.png" alt="">
+            </div>
+
+            <h3>4. Pembuatan Form Pendaftaran</h3>
+            <p>Membuat dua buah berkas kerja (file) Dart secara terpisah, yaitu main.dart sebagai titik masuk (entry point) aplikasi dan user_registration_form.dart untuk antarmuka formulir</p>
+
+             <div class="img-box">
+                <img src="Screenshot 2026-09-13 205647.png" alt="">
+            </div>
+
+            <h3>5. Konfigurasi Menggunakan Root Widget</h3>
+            <p> Menggunakan widget MaterialApp sebagai root (akar) pada berkas main.dart dan mengatur properti home agar menampilkan widget UserRegistrationForm</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205711.png" alt="">
+            </div>
+            <p>Mengimplementasikan StatefulWidget pada kelas UserRegistrationForm untuk memungkinkan pengelolaan status (state) data formulir yang dinamis</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205711.png" alt="">
+            </div>
+            <p>Membangun empat kolom input (Nama, Email, Password, Konfirmasi Password) menggunakan widget TextFormField</p>
+              <div class="img-box">
+                <img src="Screenshot 2026-09-13 205845.png" alt="">
+            </div>
+
+            <h3>6. Submission</h3>
+            <p>Mengonfigurasi tombol eksekusi dengan metode onPressed. Ketika interaksi klik (tap) terjadi, parameter ini diinstruksikan untuk memanggil metode _submitForm guna memvalidasi seluruh data secara serentak</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-09-13 205855.png" alt="Instalasi XAMPP">
+            </div>
+        </section>
+
+        <section id="kesimpulan">
+            <h2>E. KESIMPULAN</h2>
+            <p>Eksplorasi pembuatan formulir pada Flutter menunjukkan bahwa pengelolaan input pengguna dapat dilakukan melalui dua pendekatan utama, yakni standar dan tingkat lanjut. Penggunaan TextField sederhana yang didukung oleh TextEditingController memfasilitasi penangkapan data dan pemantauan aktivitas pengetikan secara langsung. Di sisi lain, integrasi TextFormField bersama Form dan GlobalKey<FormState> menghadirkan sistem validasi otomatis yang lebih robust untuk menjaga integritas data sebelum diproses oleh aplikasi. Pemisahan kode secara modular terbukti efektif dalam menjaga keterbajaran struktur direktori sekaligus mendukung praktik pengembangan perangkat lunak yang bersih dan terskala.</section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Renaldi Alwean Saputra. Built for Portfolio.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 150,
+            once: true
+        });
+    </script>
+</body>
+</html>
