@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Mobile - Navigasi dan Passing Data</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-color: #0c3463;
+            --secondary-color: #1a508b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Container Utama */
+        .report-container {
+            max-width: 900px;
+            margin: 100px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .back-nav {
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-link i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge-dept {
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+        .img-box {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.01);
+        }
+
+        .caption {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Code Block */
+        .code-snippet {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #3e4451;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            border-radius: 0 8px 0 8px;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animation class */
+        [data-aos] {
+            pointer-events: none;
+        }
+        .aos-animate {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 20px;
+                padding: 25px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container" data-aos="fade-up">
+        <div class="back-nav">
+            <a href="work.html" class="back-link">
+                <i class='bx bx-chevron-left'></i> Kembali ke Galeri Work
+            </a>
+        </div>
+
+        <header>
+            <span class="badge-dept">Informatika UNAND - Aplikasi Mobile</span>
+            <h1>Laporan Praktikum: Aplikasi Mobile Navigator </h1>
+            <div class="meta-info">
+                <p>Oleh: <strong>Renaldi Alwean Saputra</strong> | NIM: 2411532003</p>
+                <p><i class='bx bx-calendar'></i>Oktober 2026</p>
+            </div>
+        </header>
+
+        <section id="pendahuluan">
+            <h2>A. PENDAHULUAN</h2>
+            <p>Praktikum ini berfokus pada implementasi sistem navigasi dan mekanisme pengiriman data (passing data) antar layar dalam pengembangan aplikasi mobile menggunakan kerangka kerja Flutter. Dalam arsitektur aplikasi Flutter, pengelolaan rute atau halaman beroperasi berdasarkan konsep Stack (tumpukan) yang dikendalikan oleh widget Navigator</p>
+        </section>
+
+        <section id="langkah-kerja">
+            <h2>B. LANGKAH KERJA</h2>
+            
+            <h3>1. Inisialisasi Konfigurasi Proyek</h3>
+            <p>Mengonfigurasi berkas utama aplikasi untuk mendefinisikan entry point melalui fungsi main(). Pada tahap ini, kerangka aplikasi dibangun menggunakan MaterialApp, di mana tema warna utama (primarySwatch) diatur menjadi merah, dan halaman awal aplikasi diarahkan ke antarmuka Dashboard</p>
+
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155132.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+
+            <h3>2. Perancangan Antarmuka Dashboard</h3>
+            <p>Membangun halaman utama yang berfungsi sebagai pusat informasi, menampilkan kartu ringkasan saldo keuangan dan daftar riwayat transaksi. Tombol aksi mengambang (FloatingActionButton) juga disiapkan untuk berpindah ke halaman penambahan transaksi.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155150.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+
+            <h3>3. Pembuatan Layar Penerima Data</h3>
+            <p>Membangun sebuah StatelessWidget baru yang dirancang khusus untuk menampilkan detail transaksi. Pada tahap ini, variabel final disiapkan dan constructor kelas dideklarasikan dengan penanda required agar mewajibkan pengisian data (judul, nominal, kategori, dan tanggal) dari layar sebelumnya.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155220.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+            <h3>4. Implementasi Navigasi dan Passing push</h3>
+            <p> Menambahkan event listener onTap pada komponen ListTile di daftar riwayat transaksi layar Dashboard. Di dalam fungsi tersebut, disematkan perintah Navigator.push untuk memicu transisi ke layar Detail Transaksi sekaligus mengirimkan data baris transaksi yang diklik ke dalam constructor tujuan.</p>
+
+             <div class="img-box">
+                <img src="Screenshot 2026-10-04 155241.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+            <h3>5. Pengembangan Formulir Transaksi Baru</h3>
+            <p>Membuat StatefulWidget yang berisi Form untuk mencatat entri transaksi baru. Tahap ini mencakup penggunaan TextEditingController dan penambahan kolom input khusus read-only yang memicu fungsi showDatePicker, sehingga pengguna dapat memilih tanggal secara presisi.</p>
+
+             <div class="img-box">
+                <img src="Screenshot 2026-10-04 155305.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+            <h3>6. Penerapan validasi dan navigasi</h3>
+            <p>Memastikan properti validator pada setiap input bekerja dengan benar sebelum data dikirim. Setelah sistem memvalidasi seluruh input dengan sukses melalui tombol "Simpan", aplikasi akan menampilkan notifikasi SnackBar, kemudian mengeksekusi Navigator.pop(context) untuk menutup layar form dan mengembalikan pengguna ke Dashboard secara otomatis.</p>
+
+             <div class="img-box">
+                <img src="Screenshot 2026-10-04 155327.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+
+        <section id="kesimpulan">
+            <h2>D. Penyelesaian Tugas</h2>
+            <p>Langkah pertama adalah mendeklarasikan variabel controller baru di dalam State dari form transaksi. Controller ini, yaitu _dateController, berfungsi untuk menangkap, menyimpan, dan menampilkan string tanggal yang telah dipilih oleh pengguna ke dalam antarmuka form</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155349.png" style="width: 100%; max-width: 600px; height: auto;">
+            </div>
+            <p>Sebuah elemen TextFormField baru disematkan pada susunan form, ditempatkan secara spesifik sebelum tombol "Simpan". Kolom ini diatur menjadi mode baca-saja (readOnly: true) untuk mencegah keyboard sistem muncul, sehingga memastikan pengguna hanya dapat memasukkan data melalui jendela pop-up kalender</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155415.png" style="width: 100%; max-width: 500px; height: auto;">
+            </div>
+            <p>Untuk menambahkan interaktivitas pada kolom input saat ditekan, event listener onTap dikonfigurasi. Saat form tersebut diklik, program akan memicu fungsi bawaan Flutter yaitu showDatePicker. Objek tanggal yang dipilih kemudian diformat menggunakan logika pemrograman menjadi struktur string DD/MM/YYYY untuk ditampilkan sebagai teks.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155446.png" style="width: 100%; max-width: 500px; height: auto;">
+            </div>
+            <p>Untuk memastikan kelengkapan pencatatan data transaksi, fungsi validator ditambahkan pada TextFormField tersebut. Sistem akan mengevaluasi secara otomatis apakah value di dalamnya dalam keadaan kosong (isEmpty). Jika pengguna mencoba menyimpan tanpa mengisi tanggal, proses akan dicegah dan pesan peringatan "Tanggal wajib diisi!" akan muncul.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-04 155501.png" style="width: 100%; max-width: 500px; height: auto;">
+            </div>
+            <p>
+  Keseluruhan kode sumber dan aset untuk praktikum Modul IV ini telah diunggah dan dapat diakses secara publik melalui <a href="https://github.com/RAlwean/Renaldi_Alwean_2411532003_AplikasiMobile" target="_blank" style="color: #0366d6; text-decoration: none; font-weight: bold;">Repositori GitHub berikut</a>.
+</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Renaldi Alwean Saputra. Built for Portfolio.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 150,
+            once: true
+        });
+    </script>
+</body>
+</html>
