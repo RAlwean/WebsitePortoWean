@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Mobile - Arsitektur Navigasi & SQLite</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-color: #0c3463;
+            --secondary-color: #1a508b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Container Utama */
+        .report-container {
+            max-width: 900px;
+            margin: 100px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .back-nav {
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-link i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge-dept {
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+        .img-box {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s ease;
+        }
+
+        .img-box img:hover {
+            transform: scale(1.01);
+        }
+
+        .caption {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Code Block */
+        .code-snippet {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #3e4451;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            border-radius: 0 8px 0 8px;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Animation class */
+        [data-aos] {
+            pointer-events: none;
+        }
+        .aos-animate {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 20px;
+                padding: 25px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container" data-aos="fade-up">
+        <div class="back-nav">
+            <a href="work.html" class="back-link">
+                <i class='bx bx-chevron-left'></i> Kembali ke Galeri Work
+            </a>
+        </div>
+
+        <header>
+            <span class="badge-dept">Informatika UNAND - Aplikasi Mobile</span>
+            <h1>Laporan Praktikum: Aplikasi Mobile 5 - Arsitektur Navigasi & Integrasi SQLite</h1>
+            <div class="meta-info">
+                <p>Oleh: <strong>Renaldi Alwean Saputra</strong> | NIM: 2411532003</p>
+                <p><i class='bx bx-calendar'></i>Oktober 2026</p>
+            </div>
+        </header>
+
+        <section id="pendahuluan">
+            <h2>A. PENDAHULUAN</h2>
+            <p>Named Routes merupakan mekanisme navigasi pada Flutter yang menggunakan nama string untuk mengidentifikasi dan mengakses halaman aplikasi secara terpusat melalui properti routes pada MaterialApp. Selain itu, BottomNavigationBar digunakan sebagai antarmuka menu di bagian bawah layar untuk memudahkan perpindahan antar halaman utama (Dashboard, Riwayat, dan Profil) di dalam satu Scaffold. Pada laporan ini, aplikasi juga diintegrasikan dengan Local Storage menggunakan SQLite untuk memastikan data akun (Login/Register) dan riwayat transaksi tersimpan secara persisten.</p>
+        </section>
+
+        <section id="tujuan-praktikum">
+            <h2>B. TUJUAN PRAKTIKUM</h2>
+            <ul>
+                <li>Menerapkan Named Routes untuk mengatur navigasi antarhalaman secara terstruktur tanpa <i>spaghetti code</i>.</li>
+                <li>Mengimplementasikan BottomNavigationBar sebagai menu navigasi bawah yang interaktif.</li>
+                <li>Mengintegrasikan halaman Dashboard, Riwayat, dan Profil dalam satu struktur navigasi.</li>
+                <li>Menggabungkan materi praktikum 1-5 menjadi satu project utuh yang dilengkapi basis data lokal (SQLite).</li>
+            </ul>
+        </section>
+
+        <section id="langkah-kerja">
+            <h2>C. LANGKAH KERJA (NAVIGASI DASAR)</h2>
+            
+            <h3>1. Mendaftarkan Named Routes</h3>
+            <p>Menghapus parameter home pada MaterialApp di file main.dart dan menggantinya dengan initialRoute serta routes. Rute '/' diarahkan untuk memuat antarmuka Login, sedangkan rute lainnya disiapkan untuk navigasi layar utama dan form penambahan transaksi.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 190551.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+
+            <h3>2. Merangkai Penampung Tab (Main Screen)</h3>
+            <p>Membuat StatefulWidget pada main_screen.dart untuk menampung properti BottomNavigationBar. Layar ini menggunakan variabel _selectedIndex untuk mendeteksi indeks tab yang sedang aktif, lalu memuat halaman dari List _pages secara dinamis.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 190632.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+        </section>
+
+        <section id="penyelesaian-tugas">
+            <h2>D. PENYELESAIAN TUGAS (INTEGRASI & SQLITE)</h2>
+            
+            <h3>1. Menggabungkan Hasil Praktikum 1-5</h3>
+            <p>Seluruh antarmuka dari Modul 1 hingga 4 (Widget, Layout, Form, Validasi, dan Navigasi Passing Data) digabungkan menjadi satu project. Tampilan UI/UX dasar tetap dipertahankan, dengan tambahan logika dinamis untuk menampilkan data dari database.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 190725.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 192235.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+
+            <h3>2. Menambahkan Local Storage (SQLite)</h3>
+            <p>Mengonfigurasi paket sqflite dan path di dalam pubspec.yaml. Pembuatan tabel dieksekusi melalui kelas DatabaseHelper dengan menerapkan pola Singleton, sehingga koneksi ke database hanya dibuka satu kali selama aplikasi berjalan. Dua tabel utama dibuat: tabel users untuk otentikasi dan tabel transactions untuk riwayat keuangan.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 190752.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+
+            <h3>3. Pembuatan Form Login & Register</h3>
+            <p>Membangun antarmuka baru untuk mendaftarkan pengguna dan memverifikasi sesi login. Proses registrasi menangkap input nama, email, dan password yang langsung dimasukkan ke SQLite. Validasi form diimplementasikan untuk memastikan format email benar dan input tidak dibiarkan kosong.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 190908.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 192156.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 192209.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+
+            <h3>4. Pengolahan Data Transaksi (CRUD)</h3>
+            <p>Mengubah statis UI pada halaman Riwayat dan Dashboard menggunakan FutureBuilder. Komponen ini secara asinkron akan memanggil fungsi getTransactions(userEmail) dari DatabaseHelper dan mencetak daftarnya ke layar. Penyimpanan data transaksi baru dilakukan melalui form yang memicu fungsi insertTransaction().</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 191118.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+
+            <h3>5. Generate File APK</h3>
+            <p>Setelah seluruh fungsionalitas dan navigasi diuji coba, aplikasi dikompilasi menjadi format siap instal. Proses kompilasi dilakukan melalui terminal menggunakan perintah flutter build apk --release untuk menghasilkan file app-release.apk.</p>
+            <div class="img-box">
+                <img src="Screenshot 2026-10-26 191140.png" style="width: 100%; max-width: 300px; height: auto;">
+            </div>
+            
+            <p>
+              Keseluruhan kode sumber, berkas APK, dan video penjelasan untuk Praktikum Modul 5 ini telah diunggah dan dapat diakses secara publik melalui.
+            </p>
+            <p>
+              <a href="https://github.com/RAlwean/Renaldi_Alwean_2411532003_AplikasiMobile" target="_blank" style="color: #0366d6; text-decoration: none; font-weight: bold;">Repositori GitHub berikut</a>.
+            </p>
+            <p>
+              <a href="https://youtu.be/CvEjD_bm2eA" target="_blank" style="color: #0366d6; text-decoration: none; font-weight: bold;">Video Penjelasan</a>.
+            </p>
+            <p>
+              <a href="https://drive.google.com/drive/folders/1IvQyeJHCyoBQeeAeZ_d2iGZkY9YBWaEN?usp=sharing" target="_blank" style="color: #0366d6; text-decoration: none; font-weight: bold;">Link Aplikasi</a>.
+            </p>
+        </section>
+
+        <section id="kesimpulan">
+            <h2>E. KESIMPULAN</h2>
+            <p>Melalui praktikum ini, fungsionalitas aplikasi Expense Tracker berhasil disempurnakan. Penggunaan arsitektur Named Routes dan BottomNavigationBar terbukti membuat pengelolaan perpindahan antar layar menjadi jauh lebih rapi dan terpusat. Selain itu, implementasi SQLite sukses menyelesaikan kelemahan data statis pada modul sebelumnya. Aplikasi kini mampu menyimpan identitas pendaftar serta membedakan pencatatan riwayat transaksi milik pengguna secara persisten meskipun aplikasi ditutup sepenuhnya.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Renaldi Alwean Saputra. Built for Portfolio.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 150,
+            once: true
+        });
+    </script>
+</body>
+</html>
+```<ElicitationsGroup>
+<SpecificElicitation>Apakah ada bagian dari struktur HTML ini yang ingin kamu ubah atau sesuaikan lagi?</SpecificElicitation>
+</ElicitationsGroup>
